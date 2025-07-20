@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Heart Failure Prediction </title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input {
+            padding: 10px;
+            margin: 8px;
+            width: 250px;
+        }
+        button {
+            padding: 10px;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Heart Failure Prediction</h1>
+    <form method = 'post' action = "/predict">
+        <input type = "text" name = "age" placeholder="Age" required><br>
+        <input type = "text" name = "anaemia" placeholder="Anaemia (1/0)" required><br>
+        <input type = "text" name = "creatinine_phosphokinase" placeholder="CPK Level" required><br>
+        <input type = "text" name = "diabetes" placeholder="Diabetes (1/0)" required><br>
+        <input type="text" name="ejection_fraction" placeholder="Ejection Fraction" required><br>
+        <input type="text" name="high_blood_pressure" placeholder="High BP (1/0)" required><br>
+        <input type="text" name="platelets" placeholder="Platelets" required><br>
+        <input type="text" name="serum_creatinine" placeholder="Serum Creatinine" required><br>
+        <input type="text" name="serum_sodium" placeholder="Serum Sodium" required><br>
+        <input type="text" name="sex" placeholder="Sex (1=Male, 0=Female)" required><br>
+        <input type="text" name="smoking" placeholder="Smoking (1/0)" required><br>
+        <input type="text" name="time" placeholder="Follow-up Time" required><br>
+        <button type = "Submit"> Predict </button>
+    </form>
+    {% if prediction_text %}
+    <h2> {{ prediction_text}}</h2>
+    {% endif %}
+</body>
+</html>
